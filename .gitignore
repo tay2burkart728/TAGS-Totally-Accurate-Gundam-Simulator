@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*.recording.jsonl.gz
+tournament_final.png
+*_resized_temp.png
+*_gray.png
+*_grey.png
