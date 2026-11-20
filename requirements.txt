@@ -1,0 +1,2 @@
+pygame==2.6.1
+byuimage==0.5.0
