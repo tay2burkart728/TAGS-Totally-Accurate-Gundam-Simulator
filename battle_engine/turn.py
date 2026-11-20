@@ -54,14 +54,15 @@ def run_turn(pilot1, pilot2):
                 announcer.announce_echo(attacker, echo["type"], echo["damage"])
         elif action2["type"] in ["attack", "melee", "ranged"]:
             final_dmg = action2.get("damage", 0)
-            def_g.health -= final_dmg
+            atk_g.health -= final_dmg
             if final_dmg == 0:
-                if defender in turn_state.get("shield_effect", {}):
-                    announcer.announce(f"{defender.name}'s Beam Shield completely absorbs the impact!")
+                if attacker in turn_state.get("shield_effect", {}):
+                    announcer.announce(f"{attacker.name}'s Beam Shield completely absorbs the impact!")
                 else:
                     announcer.announce_parry(attacker)
             else:
                 announcer.announce_attack(defender, attacker, final_dmg, action2["type"])
+
     # Post-defender strike verification incorporates fallback revive checks
     if atk_g.health <= 0 and not check_revive(attacker, atk_g, turn_state):
         return {"winner": defender, "loser": attacker, "dot1": dot1, "dot2": dot2, "action": action2}

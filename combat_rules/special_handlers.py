@@ -95,7 +95,7 @@ def handle_burn(attacker, target, effect, attacker_gundam, target_gundam):
     """Hope it burns"""
     _schedule_dot(target, {
         "type": "burn",
-        "damage_per_turn": effect["damage_per_turn"],
+        "damage": effect["damage_per_turn"],
         "turns": effect["turns"]
     })
     announce_dot(target, effect["damage_per_turn"], "burn")
